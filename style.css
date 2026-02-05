@@ -1,24 +1,4 @@
-/* ------------------- Base Layout ------------------- */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
-}
-
-header {
-  background: #ff7043;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-main {
-  padding: 20px;
-}
-
 /* ------------------- Controls / Buttons ------------------- */
-
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -54,21 +34,65 @@ main {
   background-color: #764ba2;
 }
 
-/* ------------------- Recipe Grid ------------------- */
-
-#recipe-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
+/* ------------------- Recipe Card ------------------- */
 .recipe-card {
-  background: white;
-  padding: 15px;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
-.recipe-card h3 {
-  margin-top: 0;
+/* ------------------- Toggle Buttons ------------------- */
+.toggle-btn {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #f97316;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #ea580c;
+  transform: translateY(-2px);
+}
+
+/* ------------------- Expandable Sections ------------------- */
+.steps-container,
+.ingredients-container {
+  display: none;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  background-color: #f9f9f9;
+  border-left: 3px solid #667eea;
+  border-radius: 4px;
+}
+
+.steps-container.visible,
+.ingredients-container.visible {
+  display: block;
+}
+
+/* ------------------- Nested Steps ------------------- */
+.steps-container ol {
+  padding-left: 0;
+  margin: 0;
+}
+
+.steps-container li {
+  margin: 5px 0;
+  line-height: 1.4;
+  position: relative;
+}
+
+.steps-container li::before {
+  content: "→";
+  position: absolute;
+  left: -1.2em;
+  color: #764ba2;
 }
